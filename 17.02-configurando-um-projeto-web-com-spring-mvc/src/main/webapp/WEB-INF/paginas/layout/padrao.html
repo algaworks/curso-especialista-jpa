@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-br"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+              rel="stylesheet" />
+
+        <link th:href="@{/webjars/font-awesome/css/fontawesome.min.css}"
+              rel="stylesheet" />
+
+        <link th:href="@{/resources/css/geral.css}"
+              rel="stylesheet" />
+
+        <title>E-Commerce</title>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="javascript:;" th:href="@{/}">E-Commerce</a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:;" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                   th:href="@{/produtos}"
+                                >
+                                    Produtos
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:;"
+                                       th:href="@{/produtos}">Lista</a>
+                                    <a class="dropdown-item" href="javascript:;"
+                                       th:href="@{/produtos/novo}">Novo</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main role="main">
+            <th:block layout:fragment="conteudo"></th:block>
+        </main>
+
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </body>
+</html>

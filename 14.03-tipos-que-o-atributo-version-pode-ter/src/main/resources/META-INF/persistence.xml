@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="Ecommerce-PU">
+        <mapping-file>META-INF/consultas/pedido.xml</mapping-file>
+        <mapping-file>META-INF/consultas/produto.xml</mapping-file>
+        <mapping-file>META-INF/consultas/categoria.xml</mapping-file>
+
+        <shared-cache-mode>ALL</shared-cache-mode>
+
+        <validation-mode>CALLBACK</validation-mode>
+
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost/algaworks_ecommerce?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="1234" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+
+            <property name="hibernate.hikari.maximumPoolSize" value="16" />
+            <property name="hibernate.connection.provider_class"
+                      value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider" />
+
+            <property name="hibernate.cache.region.factory_class"
+                      value="org.hibernate.cache.jcache.internal.JCacheRegionFactory"/>
+            <property name="hibernate.javax.cache.provider"
+                      value="org.ehcache.jsr107.EhcacheCachingProvider"/>
+            <property name="hibernate.javax.cache.uri" value="META-INF/ehcache.xml"/>
+
+            <property name="javax.persistence.schema-generation.database.action"
+                      value="none"/>
+
+            <property name="javax.persistence.schema-generation.create-source"
+                      value="metadata-then-script"/>
+            <property name="javax.persistence.schema-generation.drop-source"
+                      value="metadata-then-script"/>
+
+            <property name="javax.persistence.schema-generation.create-script-source"
+                      value="META-INF/banco-de-dados/script-criacao.sql"/>
+            <property name="javax.persistence.schema-generation.drop-script-source"
+                      value="META-INF/banco-de-dados/script-remocao.sql"/>
+
+            <property name="javax.persistence.sql-load-script-source"
+                      value="META-INF/banco-de-dados/dados-iniciais.sql"/>
+
+            <property name="javax.persistence.schema-generation.scripts.action"
+                      value="none"/>
+            <property name="javax.persistence.schema-generation.scripts.create-target"
+                      value="C:/tmp/sql/script-criacao-exportado.sql"/>
+            <property name="javax.persistence.schema-generation.scripts.drop-target"
+                      value="C:/tmp/sql/script-remocao-exportado.sql"/>
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>

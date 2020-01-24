@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-br"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/padrao}">
+<head>
+    <title>Cadastro de Produto</title>
+</head>
+<body>
+
+<th:block layout:fragment="conteudo">
+    <section class="my-4">
+        <div class="container">
+            <h2>Cadastro de Produto</h2>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <form method="post" th:object="${produto}"
+                  th:action="${#httpServletRequest.getServletPath()}">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert"
+                     th:if="${#fields.hasAnyErrors()}">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <div th:each="erro: ${#fields.detailedErrors()}">
+                        <span th:text="${erro.fieldName + ': ' + erro.message}">
+                            Mensagem de validação.</span>
+                    </div>
+                </div>
+
+                <div class="alert alert-success alert-dismissible fade show" role="alert"
+                     th:if="${!#strings.isEmpty(mensagem)}">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <span th:text="${mensagem}">Mensagem de sucesso.</span>
+                </div>
+
+                <div class="form-group"
+                     th:if="${produto.id}">
+                    <label for="id">Código</label>
+                    <input type="text" class="form-control-plaintext" disabled
+                           th:field="*{id}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control"
+                           placeholder="Nome"
+                           th:field="*{nome}"/>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </section>
+</th:block>
+</body>
+</html>

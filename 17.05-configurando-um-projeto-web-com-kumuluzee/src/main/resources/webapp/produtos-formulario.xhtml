@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                template="/WEB-INF/layout/padrao.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{produtoBean.produto.id}"  />
+
+        <f:viewAction action="#{produtoBean.buscar}" if="#{param.id ne null}" />
+    </f:metadata>
+
+    <ui:define name="conteudo">
+        <section class="my-4">
+            <div class="container">
+                <h2>Cadastro de Produto</h2>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h:form accept-charset="UTF-8">
+
+                    <h:messages infoClass="alert alert-success alert-dismissible fade show"
+                                fatalClass="alert alert-danger alert-dismissible fade show"
+                                errorClass="alert alert-warning alert-dismissible fade show"
+                                style="list-style:none; margin:0; padding:0" />
+
+
+                    <div class="form-group"
+                         jsf:rendered="#{produtoBean.produto.id ne null}">
+                        <label for="id">Código</label>
+                        <input type="text" class="form-control-plaintext" jsf:disabled="true"
+                               jsf:value="#{produtoBean.produto.id}" jsf:label="id"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control"
+                               placeholder="Nome"
+                               jsf:value="#{produtoBean.produto.nome}"
+                               jsf:required="true" jsf:label="nome"/>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                            jsf:actionListener="#{produtoBean.salvar}">Salvar</button>
+                </h:form>
+            </div>
+        </section>
+    </ui:define>
+</ui:composition>

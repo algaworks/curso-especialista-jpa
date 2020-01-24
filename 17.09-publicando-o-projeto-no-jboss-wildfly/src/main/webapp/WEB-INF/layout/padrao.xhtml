@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <h:outputStylesheet library="webjars"
+                        name="bootstrap/4.4.1/css/bootstrap.min.css" />
+    <h:outputStylesheet library="webjars"
+                        name="font-awesome/5.12.0/css/fontawesome.min-jsf.css" />
+
+    <h:outputScript library="webjars"
+                    name="jquery/3.4.1/jquery.min.js"  />
+    <h:outputScript library="webjars"
+                    name="bootstrap/4.4.1/js/bootstrap.min.js" />
+
+    <h:outputStylesheet library="css"
+                    name="estilo.css" />
+
+    <title>E-commerce</title>
+</h:head>
+
+<h:body>
+    <header>
+        <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/" >E-Commerce</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:;" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Produtos
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <h:link class="dropdown-item" outcome="produtos-lista">
+                                    Lista
+                                </h:link>
+                                <h:link class="dropdown-item" outcome="produtos-formulario">
+                                    Novo
+                                </h:link>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <ui:insert name="conteudo" />
+    </main>
+
+</h:body>
+</html>

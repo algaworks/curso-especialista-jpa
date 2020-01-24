@@ -1,0 +1,22 @@
+                <datasource jndi-name="java:jboss/datasources/EcommerceDS" pool-name="EcommerceDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
+                    <connection-url>jdbc:mysql://localhost/algaworks_ecommerce?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC</connection-url>
+					
+                    <driver>mysql</driver>
+					
+                    <pool>
+                        <max-pool-size>8</max-pool-size>
+                    </pool>
+					
+                    <security>
+                        <user-name>root</user-name>
+						
+                        <password>1234</password>
+                    </security>
+                </datasource>
+
+
+                    <driver name="mysql" module="com.mysql">
+                        <driver-class>com.mysql.cj.jdbc.Driver</driver-class>
+						
+                        <xa-datasource-class>com.mysql.cj.jdbc.MysqlXADataSource</xa-datasource-class>
+                    </driver>

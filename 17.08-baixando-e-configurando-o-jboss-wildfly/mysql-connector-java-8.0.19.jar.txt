@@ -1,0 +1,8 @@
+##Sobre o arquivo "module.xml"
+
+Repare que no atributo "path" da tag "resource-root" você 
+deve configurar o nome exato do jar do driver do MySQL.
+
+Na aula o nome exato foi "mysql-connector-java-8.0.19.jar",
+mas se estiver usando uma versão de driver diferente, então 
+mude também na tag "resource-root".
