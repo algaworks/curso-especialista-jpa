@@ -1,35 +1,31 @@
 package com.algaworks.eventos.dao;
 
-import org.junit.Assert;
+import com.algaworks.eventos.model.Evento;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.Optional;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import com.algaworks.eventos.dao.EventoDAO;
-import com.algaworks.eventos.model.Evento;
 
 public class EventoDAOTest {
-	
+
 	private static Connection connection;
-	
-	@BeforeClass
+
+	@BeforeAll
 	public static void iniciarClasse() throws SQLException {
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastroevento" +
 				"?useTimezone=true&serverTimezone=UTC", "root", "1234");
 	}
 
-	@AfterClass
+	@AfterAll
 	public static void encerrarClasse() throws SQLException {
 		connection.close();
 	}
-	
+
 	@Test
 	public void crud() {
 		Evento evento = new Evento(null, "Notebook", new Date());
@@ -39,14 +35,14 @@ public class EventoDAOTest {
 
 		// Fazendo a inserção e recuperando o identificador.
 		Integer id = dao.salvar(evento);
-		Assert.assertNotNull("Identificador foi retornado como NULL.", id);
+		Assertions.assertNotNull(id, "Identificador foi retornado como NULL.");
 
 		// Atribuindo o identificador retornado ao atributo "id".
 		evento.setId(id);
 
 		// Verificando se o registro realmente foi para o banco de dados.
 		evento = dao.buscar(evento.getId());
-		Assert.assertNotNull("Evento nulo.", evento);
+		Assertions.assertNotNull(evento, "Evento nulo.");
 
 		// Atualizando o registro no banco de dados.
 		String nomeAlterado = evento.getNome() + " alterado";
@@ -55,13 +51,13 @@ public class EventoDAOTest {
 
 		// Verificando se atualização ocorreu com sucesso.
 		evento = dao.buscar(evento.getId());
-		Assert.assertEquals("O nome não foi atualizado corretamente.", nomeAlterado, evento.getNome());
+		Assertions.assertEquals(nomeAlterado, evento.getNome(), "O nome não foi atualizado corretamente.");
 
 		// Removendo o registro.
 		dao.deletar(evento.getId());
 
 		// O registro não existe mais. O método "buscar" deve retornar nulo.
 		evento = dao.buscar(evento.getId());
-		Assert.assertNull("Evento ainda existe e não deveria.", evento);
+		Assertions.assertNull(evento, "Evento ainda existe e não deveria.");
 	}
 }
