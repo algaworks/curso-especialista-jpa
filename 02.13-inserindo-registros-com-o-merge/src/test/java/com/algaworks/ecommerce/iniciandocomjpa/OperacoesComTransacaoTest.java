@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.iniciandocomjpa;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
@@ -25,7 +25,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assert.assertNotNull(produtoVerificacao);
+        Assertions.assertNotNull(produtoVerificacao);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assert.assertEquals("Kindle Paperwhite 2ª Geração", produtoVerificacao.getNome());
+        Assertions.assertEquals("Kindle Paperwhite 2ª Geração", produtoVerificacao.getNome());
     }
 
     @Test
@@ -58,8 +58,8 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assert.assertNotNull(produtoVerificacao);
-        Assert.assertEquals("Kindle Paperwhite", produtoVerificacao.getNome());
+        Assertions.assertNotNull(produtoVerificacao);
+        Assertions.assertEquals("Kindle Paperwhite", produtoVerificacao.getNome());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
 //        entityManager.clear(); Não é necessário na asserção para operação de remoção.
 
         Produto produtoVerificacao = entityManager.find(Produto.class, 3);
-        Assert.assertNull(produtoVerificacao);
+        Assertions.assertNull(produtoVerificacao);
     }
 
     @Test
@@ -92,7 +92,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assert.assertNotNull(produtoVerificacao);
+        Assertions.assertNotNull(produtoVerificacao);
     }
 
     @Test
