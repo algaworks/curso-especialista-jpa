@@ -1,13 +1,12 @@
 package com.algaworks.ecommerce.iniciandocomjpa;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 public class ConsultandoRegistrosTest {
 
@@ -15,26 +14,24 @@ public class ConsultandoRegistrosTest {
 
     private EntityManager entityManager;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpBeforeClass() {
         entityManagerFactory = Persistence
                 .createEntityManagerFactory("Ecommerce-PU");
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDownAfterClass() {
         entityManagerFactory.close();
     }
 
-    @Before
+    @BeforeEach
     public void setUp() {
         entityManager = entityManagerFactory.createEntityManager();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         entityManager.close();
     }
-
-
 }
