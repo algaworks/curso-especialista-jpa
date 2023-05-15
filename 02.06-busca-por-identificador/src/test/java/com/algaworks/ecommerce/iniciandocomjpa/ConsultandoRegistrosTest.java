@@ -1,11 +1,11 @@
 package com.algaworks.ecommerce.iniciandocomjpa;
 
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.*;
+import org.junit.jupiter.api.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 public class ConsultandoRegistrosTest {
 
@@ -13,23 +13,23 @@ public class ConsultandoRegistrosTest {
 
     private EntityManager entityManager;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpBeforeClass() {
         entityManagerFactory = Persistence
                 .createEntityManagerFactory("Ecommerce-PU");
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDownAfterClass() {
         entityManagerFactory.close();
     }
 
-    @Before
+    @BeforeEach
     public void setUp() {
         entityManager = entityManagerFactory.createEntityManager();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         entityManager.close();
     }
@@ -39,8 +39,8 @@ public class ConsultandoRegistrosTest {
         Produto produto = entityManager.find(Produto.class, 1);
 //        Produto produto = entityManager.getReference(Produto.class, 1);
 
-        Assert.assertNotNull(produto);
-        Assert.assertEquals("Kindle", produto.getNome());
+        Assertions.assertNotNull(produto);
+        Assertions.assertEquals("Kindle", produto.getNome());
     }
 
     @Test
@@ -50,6 +50,6 @@ public class ConsultandoRegistrosTest {
 
         entityManager.refresh(produto);
 
-        Assert.assertEquals("Kindle", produto.getNome());
+        Assertions.assertEquals("Kindle", produto.getNome());
     }
 }
