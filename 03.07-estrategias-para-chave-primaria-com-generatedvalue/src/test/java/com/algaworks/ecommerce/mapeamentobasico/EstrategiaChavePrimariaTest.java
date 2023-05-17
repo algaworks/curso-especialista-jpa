@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.mapeamentobasico;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Categoria;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class EstrategiaChavePrimariaTest extends EntityManagerTest {
 
@@ -19,6 +19,6 @@ public class EstrategiaChavePrimariaTest extends EntityManagerTest {
         entityManager.clear();
 
         Categoria categoriaVerificacao = entityManager.find(Categoria.class, categoria.getId());
-        Assert.assertNotNull(categoriaVerificacao);
+        Assertions.assertNotNull(categoriaVerificacao);
     }
 }

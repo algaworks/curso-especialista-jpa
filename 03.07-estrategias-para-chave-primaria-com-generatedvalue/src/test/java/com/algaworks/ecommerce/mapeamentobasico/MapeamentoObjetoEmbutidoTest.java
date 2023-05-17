@@ -4,8 +4,8 @@ import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.EnderecoEntregaPedido;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.StatusPedido;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -36,8 +36,8 @@ public class MapeamentoObjetoEmbutidoTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assert.assertNotNull(pedidoVerificacao);
-        Assert.assertNotNull(pedidoVerificacao.getEnderecoEntrega());
-        Assert.assertNotNull(pedidoVerificacao.getEnderecoEntrega().getCep());
+        Assertions.assertNotNull(pedidoVerificacao);
+        Assertions.assertNotNull(pedidoVerificacao.getEnderecoEntrega());
+        Assertions.assertNotNull(pedidoVerificacao.getEnderecoEntrega().getCep());
     }
 }
