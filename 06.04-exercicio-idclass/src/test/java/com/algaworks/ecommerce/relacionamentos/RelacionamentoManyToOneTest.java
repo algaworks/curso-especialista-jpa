@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.relacionamentos;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -28,7 +28,7 @@ public class RelacionamentoManyToOneTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assert.assertNotNull(pedidoVerificacao.getCliente());
+        Assertions.assertNotNull(pedidoVerificacao.getCliente());
     }
 
     @Test
@@ -66,7 +66,7 @@ public class RelacionamentoManyToOneTest extends EntityManagerTest {
 
         ItemPedido itemPedidoVerificacao = entityManager.find(
                 ItemPedido.class, new ItemPedidoId(pedido.getId(), produto.getId()));
-        Assert.assertNotNull(itemPedidoVerificacao.getPedido());
-        Assert.assertNotNull(itemPedidoVerificacao.getProduto());
+        Assertions.assertNotNull(itemPedidoVerificacao.getPedido());
+        Assertions.assertNotNull(itemPedidoVerificacao.getProduto());
     }
 }
