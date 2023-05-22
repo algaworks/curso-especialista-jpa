@@ -5,8 +5,8 @@ import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.Produto;
 import com.algaworks.ecommerce.model.StatusPedido;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class ListenersTest extends EntityManagerTest {
 
@@ -36,7 +36,7 @@ public class ListenersTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assert.assertNotNull(pedidoVerificacao.getDataCriacao());
-        Assert.assertNotNull(pedidoVerificacao.getDataUltimaAtualizacao());
+        Assertions.assertNotNull(pedidoVerificacao.getDataCriacao());
+        Assertions.assertNotNull(pedidoVerificacao.getDataUltimaAtualizacao());
     }
 }
