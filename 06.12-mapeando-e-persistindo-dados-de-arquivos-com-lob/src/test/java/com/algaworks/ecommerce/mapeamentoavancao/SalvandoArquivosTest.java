@@ -3,8 +3,8 @@ package com.algaworks.ecommerce.mapeamentoavancao;
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.NotaFiscal;
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,8 +29,8 @@ public class SalvandoArquivosTest extends EntityManagerTest {
         entityManager.getTransaction().commit();
 
         NotaFiscal notaFiscalVerificacao = entityManager.find(NotaFiscal.class, notaFiscal.getId());
-        Assert.assertNotNull(notaFiscalVerificacao.getXml());
-        Assert.assertTrue(notaFiscalVerificacao.getXml().length > 0);
+        Assertions.assertNotNull(notaFiscalVerificacao.getXml());
+        Assertions.assertTrue(notaFiscalVerificacao.getXml().length > 0);
 
         /*
         try {
