@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.mapeamentoavancao;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class HerancaTest extends EntityManagerTest {
 
@@ -19,6 +19,6 @@ public class HerancaTest extends EntityManagerTest {
         entityManager.clear();
 
         Cliente clienteVerificacao = entityManager.find(Cliente.class, cliente.getId());
-        Assert.assertNotNull(clienteVerificacao.getId());
+        Assertions.assertNotNull(clienteVerificacao.getId());
     }
 }
