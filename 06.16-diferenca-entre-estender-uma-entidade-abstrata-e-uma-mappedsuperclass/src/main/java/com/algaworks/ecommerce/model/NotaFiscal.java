@@ -4,7 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -23,6 +23,7 @@ public class NotaFiscal extends EntidadeBaseInteger {
     private Pedido pedido;
 
     @Lob
+	@Column(length = 1000)
     private byte[] xml;
 
     @Column(name = "data_emissao")
