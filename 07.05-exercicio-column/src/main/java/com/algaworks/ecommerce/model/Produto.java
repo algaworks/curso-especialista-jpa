@@ -4,7 +4,7 @@ import com.algaworks.ecommerce.listener.GenericoListener;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -33,6 +33,7 @@ public class Produto extends EntidadeBaseInteger {
     private BigDecimal preco;
 
     @Lob
+	@Column(length = 1000)
     private byte[] foto;
 
     @ManyToMany
