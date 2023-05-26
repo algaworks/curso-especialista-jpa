@@ -5,8 +5,8 @@ import com.algaworks.ecommerce.model.ItemPedido;
 import com.algaworks.ecommerce.model.ItemPedidoId;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class CascadeTypeRemoveTest extends EntityManagerTest {
 
@@ -14,7 +14,7 @@ public class CascadeTypeRemoveTest extends EntityManagerTest {
     public void removerRelacaoProdutoCategoria() {
         Produto produto = entityManager.find(Produto.class, 1);
 
-        Assert.assertFalse(produto.getCategorias().isEmpty());
+        Assertions.assertFalse(produto.getCategorias().isEmpty());
 
         entityManager.getTransaction().begin();
         produto.getCategorias().clear();
@@ -23,7 +23,7 @@ public class CascadeTypeRemoveTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assert.assertTrue(produtoVerificacao.getCategorias().isEmpty());
+        Assertions.assertTrue(produtoVerificacao.getCategorias().isEmpty());
     }
 
     // @Test
@@ -37,7 +37,7 @@ public class CascadeTypeRemoveTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assert.assertNull(pedidoVerificacao);
+        Assertions.assertNull(pedidoVerificacao);
     }
 
     // @Test
@@ -52,6 +52,6 @@ public class CascadeTypeRemoveTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, itemPedido.getPedido().getId());
-        Assert.assertNull(pedidoVerificacao);
+        Assertions.assertNull(pedidoVerificacao);
     }
 }
