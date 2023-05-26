@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.operacoesemcascata;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -40,7 +40,7 @@ public class CascadeTypeMergeTest extends EntityManagerTest {
         entityManager.clear();
 
         ItemPedido itemPedidoVerificacao = entityManager.find(ItemPedido.class, itemPedido.getId());
-        Assert.assertTrue(itemPedidoVerificacao.getQuantidade().equals(3));
+        Assertions.assertTrue(itemPedidoVerificacao.getQuantidade().equals(3));
     }
 
     // @Test
@@ -71,6 +71,6 @@ public class CascadeTypeMergeTest extends EntityManagerTest {
         entityManager.clear();
 
         ItemPedido itemPedidoVerificacao = entityManager.find(ItemPedido.class, itemPedido.getId());
-        Assert.assertTrue(StatusPedido.PAGO.equals(itemPedidoVerificacao.getPedido().getStatus()));
+        Assertions.assertTrue(StatusPedido.PAGO.equals(itemPedidoVerificacao.getPedido().getStatus()));
     }
 }
