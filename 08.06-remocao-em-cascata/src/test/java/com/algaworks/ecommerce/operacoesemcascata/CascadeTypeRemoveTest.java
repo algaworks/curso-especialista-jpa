@@ -4,8 +4,8 @@ import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.ItemPedido;
 import com.algaworks.ecommerce.model.ItemPedidoId;
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class CascadeTypeRemoveTest extends EntityManagerTest {
 
@@ -20,7 +20,7 @@ public class CascadeTypeRemoveTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assert.assertNull(pedidoVerificacao);
+        Assertions.assertNull(pedidoVerificacao);
     }
 
     // @Test
@@ -35,6 +35,6 @@ public class CascadeTypeRemoveTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, itemPedido.getPedido().getId());
-        Assert.assertNull(pedidoVerificacao);
+        Assertions.assertNull(pedidoVerificacao);
     }
 }
