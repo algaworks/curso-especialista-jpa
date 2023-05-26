@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.operacoesemcascata;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -39,8 +39,8 @@ public class CascadeTypePersistTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assert.assertNotNull(pedido);
-        Assert.assertFalse(pedido.getItens().isEmpty());
+        Assertions.assertNotNull(pedido);
+        Assertions.assertFalse(pedido.getItens().isEmpty());
 
     }
 
@@ -69,7 +69,7 @@ public class CascadeTypePersistTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assert.assertNotNull(pedido);
+        Assertions.assertNotNull(pedido);
     }
 
     // @Test
@@ -93,6 +93,6 @@ public class CascadeTypePersistTest extends EntityManagerTest {
         entityManager.clear();
 
         Cliente clienteVerificacao = entityManager.find(Cliente.class, cliente.getId());
-        Assert.assertNotNull(cliente);
+        Assertions.assertNotNull(cliente);
     }
 }
