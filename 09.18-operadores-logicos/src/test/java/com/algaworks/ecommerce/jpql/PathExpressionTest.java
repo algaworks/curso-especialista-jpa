@@ -2,10 +2,10 @@ package com.algaworks.ecommerce.jpql;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.TypedQuery;
+import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 public class PathExpressionTest extends EntityManagerTest {
@@ -19,7 +19,7 @@ public class PathExpressionTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class);
 
         List<Pedido> lista = typedQuery.getResultList();
-        Assert.assertTrue(lista.size() == 2);
+        Assertions.assertTrue(lista.size() == 2);
     }
 
     @Test
@@ -29,6 +29,6 @@ public class PathExpressionTest extends EntityManagerTest {
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
 
         List<Object[]> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
     }
 }
