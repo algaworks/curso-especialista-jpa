@@ -4,11 +4,11 @@ import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.NotaFiscal;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.StatusPagamento;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.TemporalType;
-import javax.persistence.TypedQuery;
+import jakarta.persistence.TemporalType;
+import jakarta.persistence.TypedQuery;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class ExpressoesCondicionaisTest extends EntityManagerTest {
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
 
         List<Object[]> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -31,7 +31,7 @@ public class ExpressoesCondicionaisTest extends EntityManagerTest {
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
 
         List<Object[]> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -42,6 +42,6 @@ public class ExpressoesCondicionaisTest extends EntityManagerTest {
         typedQuery.setParameter("nome", "a");
 
         List<Object[]> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
     }
 }

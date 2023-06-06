@@ -5,7 +5,7 @@ import com.algaworks.ecommerce.listener.GerarNotaFiscalListener;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
