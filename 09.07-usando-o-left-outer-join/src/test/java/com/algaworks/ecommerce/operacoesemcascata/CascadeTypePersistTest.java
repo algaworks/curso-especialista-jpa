@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.operacoesemcascata;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -32,7 +32,7 @@ public class CascadeTypePersistTest extends EntityManagerTest {
         entityManager.clear();
 
         Categoria categoriaVerificacao = entityManager.find(Categoria.class, categoria.getId());
-        Assert.assertNotNull(categoriaVerificacao);
+        Assertions.assertNotNull(categoriaVerificacao);
     }
 
     // @Test
@@ -62,8 +62,8 @@ public class CascadeTypePersistTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assert.assertNotNull(pedidoVerificacao);
-        Assert.assertFalse(pedidoVerificacao.getItens().isEmpty());
+        Assertions.assertNotNull(pedidoVerificacao);
+        Assertions.assertFalse(pedidoVerificacao.getItens().isEmpty());
     }
 
     @Test
@@ -91,7 +91,7 @@ public class CascadeTypePersistTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assert.assertNotNull(pedidoVerificacao);
+        Assertions.assertNotNull(pedidoVerificacao);
     }
 
     // @Test
@@ -115,6 +115,6 @@ public class CascadeTypePersistTest extends EntityManagerTest {
         entityManager.clear();
 
         Cliente clienteVerificacao = entityManager.find(Cliente.class, cliente.getId());
-        Assert.assertNotNull(clienteVerificacao);
+        Assertions.assertNotNull(clienteVerificacao);
     }
 }

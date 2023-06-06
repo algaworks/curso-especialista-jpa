@@ -3,8 +3,8 @@ package com.algaworks.ecommerce.mapeamentoavancao;
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.SexoCliente;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
@@ -25,6 +25,6 @@ public class SecondaryTableTest extends EntityManagerTest {
         entityManager.clear();
 
         Cliente clienteVerificacao = entityManager.find(Cliente.class, cliente.getId());
-        Assert.assertNotNull(clienteVerificacao.getSexo());
+        Assertions.assertNotNull(clienteVerificacao.getSexo());
     }
 }
