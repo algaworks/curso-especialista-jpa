@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.mapeamentoavancao;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -26,8 +26,8 @@ public class MapsIdTest extends EntityManagerTest {
         entityManager.clear();
 
         NotaFiscal notaFiscalVarificacao = entityManager.find(NotaFiscal.class, notaFiscal.getId());
-        Assert.assertNotNull(notaFiscalVarificacao);
-        Assert.assertEquals(pedido.getId(), notaFiscalVarificacao.getId());
+        Assertions.assertNotNull(notaFiscalVarificacao);
+        Assertions.assertEquals(pedido.getId(), notaFiscalVarificacao.getId());
     }
 
     @Test
@@ -57,6 +57,6 @@ public class MapsIdTest extends EntityManagerTest {
 
         ItemPedido itemPedidoVerificacao = entityManager.find(
                 ItemPedido.class, new ItemPedidoId(pedido.getId(), produto.getId()));
-        Assert.assertNotNull(itemPedidoVerificacao);
+        Assertions.assertNotNull(itemPedidoVerificacao);
     }
 }
