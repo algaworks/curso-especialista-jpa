@@ -1,7 +1,7 @@
 package com.algaworks.ecommerce.ddl;
 
 import com.algaworks.ecommerce.EntityManagerTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DDLTest extends EntityManagerTest {
 
