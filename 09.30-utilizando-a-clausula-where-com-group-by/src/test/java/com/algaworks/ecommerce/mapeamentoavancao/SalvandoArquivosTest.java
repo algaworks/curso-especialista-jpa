@@ -4,8 +4,8 @@ import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.NotaFiscal;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,8 +26,8 @@ public class SalvandoArquivosTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, 1);
-        Assert.assertNotNull(produtoVerificacao.getFoto());
-        Assert.assertTrue(produtoVerificacao.getFoto().length > 0);
+        Assertions.assertNotNull(produtoVerificacao.getFoto());
+        Assertions.assertTrue(produtoVerificacao.getFoto().length > 0);
     }
 
     @Test
@@ -46,8 +46,8 @@ public class SalvandoArquivosTest extends EntityManagerTest {
         entityManager.clear();
 
         NotaFiscal notaFiscalVerificacao = entityManager.find(NotaFiscal.class, notaFiscal.getId());
-        Assert.assertNotNull(notaFiscalVerificacao.getXml());
-        Assert.assertTrue(notaFiscalVerificacao.getXml().length > 0);
+        Assertions.assertNotNull(notaFiscalVerificacao.getXml());
+        Assertions.assertTrue(notaFiscalVerificacao.getXml().length > 0);
 
         /*
         try {
