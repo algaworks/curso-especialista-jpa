@@ -4,11 +4,11 @@ import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import java.io.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -23,11 +23,12 @@ public class OperacoesEmLoteTest extends EntityManagerTest {
     public void atualizarEmLote() {
         entityManager.getTransaction().begin();
 
-        String jpql = "update Produto p set p.preco = p.preco + (p.preco * 0.1) " +
+        String jpql = "update Produto p set p.preco = p.preco + (p.preco * :valor) " +
                 " where exists (select 1 from p.categorias c2 where c2.id = :categoria)";
 
         Query query = entityManager.createQuery(jpql);
         query.setParameter("categoria", 2);
+        query.setParameter("valor", new BigDecimal("0.1"));
         query.executeUpdate();
 
         entityManager.getTransaction().commit();
