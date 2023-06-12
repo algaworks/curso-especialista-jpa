@@ -4,10 +4,10 @@ import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.TypedQuery;
+import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 public class SubqueriesTest extends EntityManagerTest {
@@ -27,7 +27,7 @@ public class SubqueriesTest extends EntityManagerTest {
         TypedQuery<Produto> typedQuery = entityManager.createQuery(jpql, Produto.class);
 
         List<Produto> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -45,7 +45,7 @@ public class SubqueriesTest extends EntityManagerTest {
         TypedQuery<Produto> typedQuery = entityManager.createQuery(jpql, Produto.class);
 
         List<Produto> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -59,7 +59,7 @@ public class SubqueriesTest extends EntityManagerTest {
         TypedQuery<Produto> typedQuery = entityManager.createQuery(jpql, Produto.class);
 
         List<Produto> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -72,7 +72,7 @@ public class SubqueriesTest extends EntityManagerTest {
         TypedQuery<Cliente> typedQuery = entityManager.createQuery(jpql, Cliente.class);
 
         List<Cliente> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -86,7 +86,7 @@ public class SubqueriesTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class);
 
         List<Pedido> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -99,7 +99,7 @@ public class SubqueriesTest extends EntityManagerTest {
         TypedQuery<Produto> typedQuery = entityManager.createQuery(jpql, Produto.class);
 
         List<Produto> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -113,7 +113,7 @@ public class SubqueriesTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class);
 
         List<Pedido> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -139,7 +139,7 @@ public class SubqueriesTest extends EntityManagerTest {
         TypedQuery<Cliente> typedQuery = entityManager.createQuery(jpql, Cliente.class);
 
         List<Cliente> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId() + ", Nome: " + obj.getNome()));
     }
