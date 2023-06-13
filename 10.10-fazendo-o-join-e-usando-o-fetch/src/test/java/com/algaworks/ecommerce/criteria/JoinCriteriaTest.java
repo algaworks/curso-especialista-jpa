@@ -2,11 +2,11 @@ package com.algaworks.ecommerce.criteria;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.*;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.*;
 import java.util.List;
 
 public class JoinCriteriaTest extends EntityManagerTest {
@@ -29,7 +29,7 @@ public class JoinCriteriaTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
 
         Pedido pedido = typedQuery.getSingleResult();
-        Assert.assertNotNull(pedido);
+        Assertions.assertNotNull(pedido);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class JoinCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Pedido> lista = typedQuery.getResultList();
-        Assert.assertTrue(lista.size() == 5);
+        Assertions.assertTrue(lista.size() == 5);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class JoinCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Pedido> lista = typedQuery.getResultList();
-        Assert.assertTrue(lista.size() == 2);
+        Assertions.assertTrue(lista.size() == 2);
     }
 
     @Test
@@ -79,6 +79,6 @@ public class JoinCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Pedido> lista = typedQuery.getResultList();
-        Assert.assertTrue(lista.size() == 4);
+        Assertions.assertTrue(lista.size() == 4);
     }
 }
