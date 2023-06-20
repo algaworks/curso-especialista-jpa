@@ -2,11 +2,11 @@ package com.algaworks.ecommerce.criteria;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.*;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -76,7 +76,7 @@ public class GroupByCriteriaTest extends EntityManagerTest {
                 criteriaBuilder.sum(root.get(Pedido_.total))
         );
 
-        criteriaQuery.groupBy(anoCriacaoPedido, mesCriacaoPedido);
+        criteriaQuery.groupBy(anoMesConcat, anoCriacaoPedido, mesCriacaoPedido);
 
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Object[]> lista = typedQuery.getResultList();
