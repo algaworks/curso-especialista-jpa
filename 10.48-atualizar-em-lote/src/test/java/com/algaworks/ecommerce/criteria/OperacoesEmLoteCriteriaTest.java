@@ -5,10 +5,10 @@ import com.algaworks.ecommerce.model.Categoria;
 import com.algaworks.ecommerce.model.Categoria_;
 import com.algaworks.ecommerce.model.Produto;
 import com.algaworks.ecommerce.model.Produto_;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.Query;
-import javax.persistence.criteria.*;
+import jakarta.persistence.Query;
+import jakarta.persistence.criteria.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
