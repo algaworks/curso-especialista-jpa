@@ -3,13 +3,17 @@ package com.algaworks.ecommerce.conhecendoentitymanager;
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.StatusPedido;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class FlushTest extends EntityManagerTest {
 
-    @Test(expected = Exception.class)
+    @Test
     public void chamarFlush() {
+        Assertions.assertThrows(Exception.class, () -> erroAoChamarFlush());
+    }
+
+    private void erroAoChamarFlush() {
         try {
             entityManager.getTransaction().begin();
 
@@ -26,7 +30,7 @@ public class FlushTest extends EntityManagerTest {
 //            Pedido pedidoPago = entityManager
 //                    .createQuery("select p from Pedido p where p.id = 1", Pedido.class)
 //                    .getSingleResult();
-//            Assert.assertEquals(pedido.getStatus(), pedidoPago.getStatus());
+//            Assertions.assertEquals(pedido.getStatus(), pedidoPago.getStatus());
 
             entityManager.getTransaction().commit();
         } catch (Exception e) {

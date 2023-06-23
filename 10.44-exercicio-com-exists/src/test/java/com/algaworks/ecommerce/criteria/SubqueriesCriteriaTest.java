@@ -2,11 +2,11 @@ package com.algaworks.ecommerce.criteria;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.*;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class SubqueriesCriteriaTest extends EntityManagerTest {
         TypedQuery<Produto> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Produto> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -60,7 +60,7 @@ public class SubqueriesCriteriaTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Pedido> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -83,7 +83,7 @@ public class SubqueriesCriteriaTest extends EntityManagerTest {
         TypedQuery<Cliente> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Cliente> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId() + ", Nome: " + obj.getNome()));
     }
@@ -110,7 +110,7 @@ public class SubqueriesCriteriaTest extends EntityManagerTest {
         TypedQuery<Produto> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Produto> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -140,7 +140,7 @@ public class SubqueriesCriteriaTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Pedido> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println("ID: " + obj.getId()));
     }
@@ -168,7 +168,7 @@ public class SubqueriesCriteriaTest extends EntityManagerTest {
         TypedQuery<Cliente> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Cliente> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println(
                 "ID: " + obj.getId() + ", Nome: " + obj.getNome()));
@@ -195,7 +195,7 @@ public class SubqueriesCriteriaTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Pedido> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println(
                 "ID: " + obj.getId() + ", Total: " + obj.getTotal()));
@@ -222,7 +222,7 @@ public class SubqueriesCriteriaTest extends EntityManagerTest {
         TypedQuery<Produto> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Produto> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println(
                 "ID: " + obj.getId() + ", Nome: " + obj.getNome() + ", Preço: " + obj.getPreco()));
