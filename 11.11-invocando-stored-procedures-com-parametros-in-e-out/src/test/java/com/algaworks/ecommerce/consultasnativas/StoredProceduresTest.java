@@ -1,11 +1,11 @@
 package com.algaworks.ecommerce.consultasnativas;
 
 import com.algaworks.ecommerce.EntityManagerTest;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.ParameterMode;
-import javax.persistence.StoredProcedureQuery;
+import jakarta.persistence.ParameterMode;
+import jakarta.persistence.StoredProcedureQuery;
 
 public class StoredProceduresTest extends EntityManagerTest {
 
@@ -25,6 +25,6 @@ public class StoredProceduresTest extends EntityManagerTest {
         String nome = (String) storedProcedureQuery
                 .getOutputParameterValue("produto_nome");
 
-        Assert.assertEquals("Kindle", nome);
+        Assertions.assertEquals("Kindle", nome);
     }
 }
