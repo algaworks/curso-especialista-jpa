@@ -3,15 +3,15 @@ package com.algaworks.ecommerce.criteria;
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.NotaFiscal;
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.TemporalType;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.ParameterExpression;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.TemporalType;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.ParameterExpression;
+import jakarta.persistence.criteria.Root;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -39,7 +39,7 @@ public class PassandoParametrosCriteriaTest extends EntityManagerTest {
         typedQuery.setParameter("dataInicial", dataInicial.getTime(), TemporalType.TIMESTAMP);
 
         List<NotaFiscal> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -59,6 +59,6 @@ public class PassandoParametrosCriteriaTest extends EntityManagerTest {
         typedQuery.setParameter("id", 1);
 
         Pedido pedido = typedQuery.getSingleResult();
-        Assert.assertNotNull(pedido);
+        Assertions.assertNotNull(pedido);
     }
 }
