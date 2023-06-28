@@ -4,7 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -23,8 +23,8 @@ public class NotaFiscal extends EntidadeBaseInteger {
 //            inverseJoinColumns = @JoinColumn(name = "pedido_id", unique = true))
     private Pedido pedido;
 
-    @Column(nullable = false)
     @Lob
+    @Column(length = 1000, nullable = false)
     private byte[] xml;
 
     @Temporal(TemporalType.TIMESTAMP)
