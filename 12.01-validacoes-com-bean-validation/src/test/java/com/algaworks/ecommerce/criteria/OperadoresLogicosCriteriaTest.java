@@ -4,14 +4,14 @@ import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.Pedido_;
 import com.algaworks.ecommerce.model.StatusPedido;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.ParameterExpression;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.ParameterExpression;
+import jakarta.persistence.criteria.Root;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -42,7 +42,7 @@ public class OperadoresLogicosCriteriaTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Pedido> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(p -> System.out.println(
                 "ID: " + p.getId() + ", Total: " + p.getTotal()));
