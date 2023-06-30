@@ -11,11 +11,11 @@
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:mysql://localhost/algaworks_ecommerce?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC" />
             <property name="jakarta.persistence.jdbc.user" value="root" />
-            <property name="jakarta.persistence.jdbc.password" value="1234" />
+            <property name="jakarta.persistence.jdbc.password" value="123" />
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 
             <property name="jakarta.persistence.schema-generation.database.action"
-                      value="none"/>
+                      value="drop-and-create"/>
 
             <property name="jakarta.persistence.schema-generation.create-source"
                       value="metadata-then-script"/>

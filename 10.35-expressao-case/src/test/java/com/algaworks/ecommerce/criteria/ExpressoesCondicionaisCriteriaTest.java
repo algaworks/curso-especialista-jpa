@@ -24,9 +24,9 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
         criteriaQuery.multiselect(
                 root.get(Pedido_.id),
 //                criteriaBuilder.selectCase(root.get(Pedido_.STATUS))
-//                        .when(StatusPedido.PAGO.toString(), "Foi pago.")
-//                        .when(StatusPedido.AGUARDANDO.toString(), "Está aguardando.")
-//                        .otherwise(root.get(Pedido_.status))
+//                        .when(StatusPedido.PAGO, "Foi pago.")
+//                        .when(StatusPedido.AGUARDANDO, "Está aguardando.")
+//                        .otherwise(root.get(Pedido_.status)).as(String.class)
                 criteriaBuilder.selectCase(root.get(Pedido_.pagamento).type().as(String.class))
                         .when("boleto", "Foi pago com boleto.")
                         .when("cartao", "Foi pago com cartão")
