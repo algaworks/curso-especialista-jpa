@@ -1,25 +1,25 @@
 package com.algaworks.ecommerce.cache;
 
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 public class CacheTest {
 
     protected static EntityManagerFactory entityManagerFactory;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpBeforeClass() {
         entityManagerFactory = Persistence
                 .createEntityManagerFactory("Ecommerce-PU");
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDownAfterClass() {
         entityManagerFactory.close();
     }

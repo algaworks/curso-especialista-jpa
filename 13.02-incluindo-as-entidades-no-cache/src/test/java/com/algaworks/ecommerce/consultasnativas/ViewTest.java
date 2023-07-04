@@ -2,9 +2,9 @@ package com.algaworks.ecommerce.consultasnativas;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.Query;
+import jakarta.persistence.Query;
 import java.util.List;
 
 public class ViewTest extends EntityManagerTest {
