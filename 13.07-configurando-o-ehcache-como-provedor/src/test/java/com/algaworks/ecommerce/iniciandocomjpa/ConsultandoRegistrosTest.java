@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.iniciandocomjpa;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class ConsultandoRegistrosTest extends EntityManagerTest {
 
@@ -12,8 +12,8 @@ public class ConsultandoRegistrosTest extends EntityManagerTest {
         Produto produto = entityManager.find(Produto.class, 1);
 //        Produto produto = entityManager.getReference(Produto.class, 1);
 
-        Assertions.assertNotNull(produto);
-        Assertions.assertEquals("Kindle", produto.getNome());
+        Assert.assertNotNull(produto);
+        Assert.assertEquals("Kindle", produto.getNome());
     }
 
     @Test
@@ -23,6 +23,6 @@ public class ConsultandoRegistrosTest extends EntityManagerTest {
 
         entityManager.refresh(produto);
 
-        Assertions.assertEquals("Kindle", produto.getNome());
+        Assert.assertEquals("Kindle", produto.getNome());
     }
 }

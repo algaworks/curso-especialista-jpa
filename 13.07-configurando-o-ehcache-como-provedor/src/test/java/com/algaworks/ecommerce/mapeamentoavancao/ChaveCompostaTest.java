@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.mapeamentoavancao;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.time.LocalDateTime;
 
@@ -40,8 +40,8 @@ public class ChaveCompostaTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assertions.assertNotNull(pedidoVerificacao);
-        Assertions.assertFalse(pedidoVerificacao.getItens().isEmpty());
+        Assert.assertNotNull(pedidoVerificacao);
+        Assert.assertFalse(pedidoVerificacao.getItens().isEmpty());
     }
 
     @Test
@@ -49,6 +49,6 @@ public class ChaveCompostaTest extends EntityManagerTest {
         ItemPedido itemPedido = entityManager.find(
                 ItemPedido.class, new ItemPedidoId(1, 1));
 
-        Assertions.assertNotNull(itemPedido);
+        Assert.assertNotNull(itemPedido);
     }
 }

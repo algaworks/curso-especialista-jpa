@@ -2,7 +2,7 @@ package com.algaworks.ecommerce.detalhesimportantes;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class ValidacaoTest extends EntityManagerTest {
 

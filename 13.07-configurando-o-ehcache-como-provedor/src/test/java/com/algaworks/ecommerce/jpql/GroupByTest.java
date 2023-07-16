@@ -1,10 +1,10 @@
 package com.algaworks.ecommerce.jpql;
 
 import com.algaworks.ecommerce.EntityManagerTest;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-import jakarta.persistence.TypedQuery;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class GroupByTest extends EntityManagerTest {
@@ -21,7 +21,7 @@ public class GroupByTest extends EntityManagerTest {
 
         List<Object[]> lista = typedQuery.getResultList();
 
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(arr -> System.out.println(arr[0] + ", " + arr[1]));
     }
@@ -50,7 +50,7 @@ public class GroupByTest extends EntityManagerTest {
 
         List<Object[]> lista = typedQuery.getResultList();
 
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(arr -> System.out.println(arr[0] + ", " + arr[1]));
     }
@@ -88,7 +88,7 @@ public class GroupByTest extends EntityManagerTest {
 
         List<Object[]> lista = typedQuery.getResultList();
 
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(arr -> System.out.println(arr[0] + ", " + arr[1]));
     }

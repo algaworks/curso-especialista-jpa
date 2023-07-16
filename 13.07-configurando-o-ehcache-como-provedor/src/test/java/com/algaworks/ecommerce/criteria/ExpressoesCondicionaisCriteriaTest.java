@@ -2,13 +2,13 @@ package com.algaworks.ecommerce.criteria;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-import jakarta.persistence.TypedQuery;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -36,7 +36,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -54,7 +54,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -78,7 +78,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Object[]> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(arr -> System.out.println(arr[0] + ", " + arr[1]));
     }
@@ -96,7 +96,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(p -> System.out.println(
                 "ID: " + p.getId() + ", Total: " + p.getTotal()));
@@ -118,7 +118,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(p -> System.out.println(
                 "ID: " + p.getId() + ", Total: " + p.getTotal()));
@@ -138,7 +138,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -157,7 +157,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Produto> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Produto> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(p -> System.out.println(
                 "ID: " + p.getId() + ", Nome: " + p.getNome() + ", Preço: " + p.getPreco()));
@@ -175,7 +175,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Produto> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Produto> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -191,7 +191,7 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Produto> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Produto> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -206,6 +206,6 @@ public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Cliente> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Cliente> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 }

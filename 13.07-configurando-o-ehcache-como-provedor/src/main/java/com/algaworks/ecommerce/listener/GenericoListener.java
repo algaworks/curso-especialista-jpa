@@ -1,6 +1,6 @@
 package com.algaworks.ecommerce.listener;
 
-import jakarta.persistence.PostLoad;
+import javax.persistence.PostLoad;
 
 public class GenericoListener {
 

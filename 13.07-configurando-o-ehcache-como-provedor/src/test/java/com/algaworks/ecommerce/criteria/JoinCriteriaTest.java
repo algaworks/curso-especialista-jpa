@@ -2,11 +2,11 @@ package com.algaworks.ecommerce.criteria;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-import jakarta.persistence.TypedQuery;
-import jakarta.persistence.criteria.*;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 import java.util.List;
 
 public class JoinCriteriaTest extends EntityManagerTest {
@@ -28,7 +28,7 @@ public class JoinCriteriaTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -49,7 +49,7 @@ public class JoinCriteriaTest extends EntityManagerTest {
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
 
         Pedido pedido = typedQuery.getSingleResult();
-        Assertions.assertNotNull(pedido);
+        Assert.assertNotNull(pedido);
     }
 
     @Test
@@ -63,7 +63,7 @@ public class JoinCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertTrue(lista.size() == 5);
+        Assert.assertTrue(lista.size() == 5);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class JoinCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertTrue(lista.size() == 2);
+        Assert.assertTrue(lista.size() == 2);
     }
 
     @Test
@@ -99,6 +99,6 @@ public class JoinCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertTrue(lista.size() == 4);
+        Assert.assertTrue(lista.size() == 4);
     }
 }

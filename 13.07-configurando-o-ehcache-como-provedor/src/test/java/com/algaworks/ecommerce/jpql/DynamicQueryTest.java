@@ -2,10 +2,10 @@ package com.algaworks.ecommerce.jpql;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-import jakarta.persistence.TypedQuery;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class DynamicQueryTest extends EntityManagerTest {
@@ -17,8 +17,8 @@ public class DynamicQueryTest extends EntityManagerTest {
 
         List<Produto> lista = pesquisar(consultado);
 
-        Assertions.assertFalse(lista.isEmpty());
-        Assertions.assertEquals("Câmera GoPro Hero 7", lista.get(0).getNome());
+        Assert.assertFalse(lista.isEmpty());
+        Assert.assertEquals("Câmera GoPro Hero 7", lista.get(0).getNome());
     }
 
     private List<Produto> pesquisar(Produto consultado) {

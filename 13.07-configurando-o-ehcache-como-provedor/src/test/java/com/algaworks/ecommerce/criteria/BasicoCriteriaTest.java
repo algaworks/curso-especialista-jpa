@@ -3,12 +3,12 @@ package com.algaworks.ecommerce.criteria;
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.dto.ProdutoDTO;
 import com.algaworks.ecommerce.model.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-import jakarta.persistence.Tuple;
-import jakarta.persistence.TypedQuery;
-import jakarta.persistence.criteria.*;
+import javax.persistence.Tuple;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class BasicoCriteriaTest extends EntityManagerTest {
         TypedQuery<Cliente> typedQuery = entityManager.createQuery(criteriaQuery);
 
         List<Cliente> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(c -> System.out.println(c.getId() + ", " + c.getNome()));
     }
@@ -57,7 +57,7 @@ public class BasicoCriteriaTest extends EntityManagerTest {
 
         TypedQuery<ProdutoDTO> typedQuery = entityManager.createQuery(criteriaQuery);
         List<ProdutoDTO> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(dto -> System.out.println("ID: " + dto.getId() + ", Nome: " + dto.getNome()));
     }
@@ -73,7 +73,7 @@ public class BasicoCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Tuple> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Tuple> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(t -> System.out.println("ID: " + t.get("id") + ", Nome: " + t.get("nome")));
     }
@@ -88,7 +88,7 @@ public class BasicoCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Object[]> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(arr -> System.out.println("ID: " + arr[0] + ", Nome: " + arr[1]));
     }
@@ -103,7 +103,7 @@ public class BasicoCriteriaTest extends EntityManagerTest {
 
         TypedQuery<Produto> typedQuery = entityManager.createQuery(criteriaQuery);
         List<Produto> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -118,7 +118,7 @@ public class BasicoCriteriaTest extends EntityManagerTest {
 
         TypedQuery<BigDecimal> typedQuery = entityManager.createQuery(criteriaQuery);
         BigDecimal total = typedQuery.getSingleResult();
-        Assertions.assertEquals(new BigDecimal("2398.00"), total);
+        Assert.assertEquals(new BigDecimal("2398.00"), total);
     }
 
     @Test
@@ -138,6 +138,6 @@ public class BasicoCriteriaTest extends EntityManagerTest {
                 .createQuery(criteriaQuery);
 
         Pedido pedido = typedQuery.getSingleResult();
-        Assertions.assertNotNull(pedido);
+        Assert.assertNotNull(pedido);
     }
 }

@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.detalhesimportantes;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.time.LocalDateTime;
 
@@ -25,6 +25,6 @@ public class ConversorTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assertions.assertTrue(produtoVerificacao.getAtivo());
+        Assert.assertTrue(produtoVerificacao.getAtivo());
     }
 }

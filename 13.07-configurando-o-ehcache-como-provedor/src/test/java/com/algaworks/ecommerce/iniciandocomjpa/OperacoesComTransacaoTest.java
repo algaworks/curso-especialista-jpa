@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.iniciandocomjpa;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -22,7 +22,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assertions.assertEquals("Kindle", produtoVerificacao.getNome());
+        Assert.assertEquals("Kindle", produtoVerificacao.getNome());
     }
 
     @Test
@@ -43,7 +43,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacaoPersist = entityManager.find(Produto.class, produtoPersist.getId());
-        Assertions.assertNotNull(produtoVerificacaoPersist);
+        Assert.assertNotNull(produtoVerificacaoPersist);
 
 
 
@@ -63,7 +63,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacaoMerge = entityManager.find(Produto.class, produtoMerge.getId());
-        Assertions.assertNotNull(produtoVerificacaoMerge);
+        Assert.assertNotNull(produtoVerificacaoMerge);
     }
 
     @Test
@@ -83,7 +83,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produtoSalvo.getId());
-        Assertions.assertNotNull(produtoVerificacao);
+        Assert.assertNotNull(produtoVerificacao);
     }
 
     @Test
@@ -97,7 +97,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assertions.assertEquals("Kindle Paperwhite 2ª Geração", produtoVerificacao.getNome());
+        Assert.assertEquals("Kindle Paperwhite 2ª Geração", produtoVerificacao.getNome());
     }
 
     @Test
@@ -116,8 +116,8 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assertions.assertNotNull(produtoVerificacao);
-        Assertions.assertEquals("Kindle Paperwhite", produtoVerificacao.getNome());
+        Assert.assertNotNull(produtoVerificacao);
+        Assert.assertEquals("Kindle Paperwhite", produtoVerificacao.getNome());
     }
 
     @Test
@@ -131,7 +131,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
 //        entityManager.clear(); Não é necessário na asserção para operação de remoção.
 
         Produto produtoVerificacao = entityManager.find(Produto.class, 3);
-        Assertions.assertNull(produtoVerificacao);
+        Assert.assertNull(produtoVerificacao);
     }
 
     @Test
@@ -151,7 +151,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assertions.assertNotNull(produtoVerificacao);
+        Assert.assertNotNull(produtoVerificacao);
     }
 
     @Test

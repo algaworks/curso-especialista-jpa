@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.mapeamentoavancao;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class HerancaTest extends EntityManagerTest {
         entityManager.clear();
 
         Cliente clienteVerificacao = entityManager.find(Cliente.class, cliente.getId());
-        Assertions.assertNotNull(clienteVerificacao.getId());
+        Assert.assertNotNull(clienteVerificacao.getId());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class HerancaTest extends EntityManagerTest {
                 .createQuery("select p from Pagamento p")
                 .getResultList();
 
-        Assertions.assertFalse(pagamentos.isEmpty());
+        Assert.assertFalse(pagamentos.isEmpty());
     }
 
     @Test
@@ -51,6 +51,6 @@ public class HerancaTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, pedido.getId());
-        Assertions.assertNotNull(pedidoVerificacao.getPagamento());
+        Assert.assertNotNull(pedidoVerificacao.getPagamento());
     }
 }

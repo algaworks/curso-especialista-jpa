@@ -3,17 +3,12 @@ package com.algaworks.ecommerce.conhecendoentitymanager;
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.StatusPedido;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class GerenciamentoTransacoesTest extends EntityManagerTest {
 
-    @Test
+    @Test(expected = Exception.class)
     public void abrirFecharCancelarTransacao() {
-        Assertions.assertThrows(Exception.class, () -> erroEsperadoMetodoDeNegocio());
-    }
-
-    private void erroEsperadoMetodoDeNegocio() {
         try {
             entityManager.getTransaction().begin();
             metodoDeNegocio();

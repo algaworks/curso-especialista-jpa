@@ -2,18 +2,18 @@ package com.algaworks.ecommerce.jpql;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Categoria;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.TypedQuery;
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class AbordagemHibridaTest extends EntityManagerTest {
 
-    @BeforeAll
+    @BeforeClass
     public static void setUpBeforeClass() {
         entityManagerFactory = Persistence
                 .createEntityManagerFactory("Ecommerce-PU");
@@ -32,6 +32,6 @@ public class AbordagemHibridaTest extends EntityManagerTest {
                 .createNamedQuery("Categoria.listar", Categoria.class);
 
         List<Categoria> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 }

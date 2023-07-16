@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.relacionamentos;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class RemovendoEntidadesReferenciadasTest extends EntityManagerTest {
 
@@ -11,7 +11,7 @@ public class RemovendoEntidadesReferenciadasTest extends EntityManagerTest {
     public void removerEntidadeRelacionada() {
         Pedido pedido = entityManager.find(Pedido.class, 1);
 
-        Assertions.assertFalse(pedido.getItens().isEmpty());
+        Assert.assertFalse(pedido.getItens().isEmpty());
 
         entityManager.getTransaction().begin();
         pedido.getItens().forEach(i -> entityManager.remove(i));
@@ -21,6 +21,6 @@ public class RemovendoEntidadesReferenciadasTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, 1);
-        Assertions.assertNull(pedidoVerificacao);
+        Assert.assertNull(pedidoVerificacao);
     }
 }

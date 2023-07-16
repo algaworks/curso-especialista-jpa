@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.mapeamentoavancao;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -27,8 +27,8 @@ public class DetalhesColumnTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assertions.assertNotNull(produtoVerificacao.getDataCriacao());
-        Assertions.assertNull(produtoVerificacao.getDataUltimaAtualizacao());
+        Assert.assertNotNull(produtoVerificacao.getDataCriacao());
+        Assert.assertNull(produtoVerificacao.getDataUltimaAtualizacao());
     }
 
     @Test
@@ -45,9 +45,9 @@ public class DetalhesColumnTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assertions.assertNotEquals(produto.getDataCriacao().truncatedTo(ChronoUnit.SECONDS),
+        Assert.assertNotEquals(produto.getDataCriacao().truncatedTo(ChronoUnit.SECONDS),
                 produtoVerificacao.getDataCriacao().truncatedTo(ChronoUnit.SECONDS));
-        Assertions.assertEquals(produto.getDataUltimaAtualizacao().truncatedTo(ChronoUnit.SECONDS),
+        Assert.assertEquals(produto.getDataUltimaAtualizacao().truncatedTo(ChronoUnit.SECONDS),
                 produtoVerificacao.getDataUltimaAtualizacao().truncatedTo(ChronoUnit.SECONDS));
     }
 }

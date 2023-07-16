@@ -4,8 +4,8 @@ import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Produto;
 import com.algaworks.ecommerce.model.SexoCliente;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class PrimeiroCrudTest extends EntityManagerTest {
 
@@ -25,15 +25,15 @@ public class PrimeiroCrudTest extends EntityManagerTest {
         entityManager.clear();
 
         Cliente clienteVerificacao = entityManager.find(Cliente.class, cliente.getId());
-        Assertions.assertNotNull(clienteVerificacao);
+        Assert.assertNotNull(clienteVerificacao);
     }
 
     @Test
     public void busarPorIdentificador() {
         Produto produto = entityManager.find(Produto.class, 1);
 
-        Assertions.assertNotNull(produto);
-        Assertions.assertEquals("Kindle", produto.getNome());
+        Assert.assertNotNull(produto);
+        Assert.assertEquals("Kindle", produto.getNome());
     }
 
     @Test
@@ -52,7 +52,7 @@ public class PrimeiroCrudTest extends EntityManagerTest {
         entityManager.clear();
 
         Cliente clienteVerificacao = entityManager.find(Cliente.class, cliente.getId());
-        Assertions.assertEquals("Fernando Medeiros Silva", clienteVerificacao.getNome());
+        Assert.assertEquals("Fernando Medeiros Silva", clienteVerificacao.getNome());
     }
 
     @Test
@@ -66,6 +66,6 @@ public class PrimeiroCrudTest extends EntityManagerTest {
         entityManager.clear();
 
         Cliente clienteVerificacao = entityManager.find(Cliente.class, cliente.getId());
-        Assertions.assertNull(clienteVerificacao);
+        Assert.assertNull(clienteVerificacao);
     }
 }

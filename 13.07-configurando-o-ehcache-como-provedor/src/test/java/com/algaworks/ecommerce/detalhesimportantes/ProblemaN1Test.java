@@ -2,10 +2,10 @@ package com.algaworks.ecommerce.detalhesimportantes;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-import jakarta.persistence.EntityGraph;
+import javax.persistence.EntityGraph;
 import java.util.List;
 
 public class ProblemaN1Test extends EntityManagerTest {
@@ -17,10 +17,10 @@ public class ProblemaN1Test extends EntityManagerTest {
 
         List<Pedido> lista = entityManager
                 .createQuery("select p from Pedido p ", Pedido.class)
-                .setHint("jakarta.persistence.loadgraph", entityGraph)
+                .setHint("javax.persistence.loadgraph", entityGraph)
                 .getResultList();
 
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -32,6 +32,6 @@ public class ProblemaN1Test extends EntityManagerTest {
                         " join fetch p.notaFiscal nf", Pedido.class)
                 .getResultList();
 
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 }

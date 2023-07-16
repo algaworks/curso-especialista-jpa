@@ -4,11 +4,11 @@ import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-import jakarta.persistence.Query;
-import jakarta.persistence.TypedQuery;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.io.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

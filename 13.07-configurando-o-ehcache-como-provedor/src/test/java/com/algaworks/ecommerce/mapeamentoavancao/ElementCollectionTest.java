@@ -4,8 +4,8 @@ import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Atributo;
 import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,7 +24,7 @@ public class ElementCollectionTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assertions.assertFalse(produtoVerificacao.getTags().isEmpty());
+        Assert.assertFalse(produtoVerificacao.getTags().isEmpty());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class ElementCollectionTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assertions.assertFalse(produtoVerificacao.getAtributos().isEmpty());
+        Assert.assertFalse(produtoVerificacao.getAtributos().isEmpty());
     }
 
     @Test
@@ -54,7 +54,7 @@ public class ElementCollectionTest extends EntityManagerTest {
         entityManager.clear();
 
         Cliente clienteVerificacao = entityManager.find(Cliente.class, cliente.getId());
-        Assertions.assertEquals(
+        Assert.assertEquals(
                 "fernando@email.com", clienteVerificacao.getContatos().get("email"));
     }
 

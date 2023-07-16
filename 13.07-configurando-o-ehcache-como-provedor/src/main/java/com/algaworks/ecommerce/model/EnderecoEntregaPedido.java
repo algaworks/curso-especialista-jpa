@@ -3,9 +3,9 @@ package com.algaworks.ecommerce.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.validation.constraints.*;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.validation.constraints.*;
 
 @Getter
 @Setter

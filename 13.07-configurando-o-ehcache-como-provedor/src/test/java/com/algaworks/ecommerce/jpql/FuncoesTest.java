@@ -3,10 +3,10 @@ package com.algaworks.ecommerce.jpql;
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Categoria;
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-import jakarta.persistence.TypedQuery;
+import javax.persistence.TypedQuery;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -25,7 +25,7 @@ public class FuncoesTest extends EntityManagerTest {
         TypedQuery<Number> typedQuery = entityManager.createQuery(jpql, Number.class);
 
         List<Number> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println(obj));
     }
@@ -38,7 +38,7 @@ public class FuncoesTest extends EntityManagerTest {
         TypedQuery<String> typedQuery = entityManager.createQuery(jpql, String.class);
 
         List<String> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(obj -> System.out.println(obj));
     }
@@ -50,7 +50,7 @@ public class FuncoesTest extends EntityManagerTest {
         TypedQuery<Integer> typedQuery = entityManager.createQuery(jpql, Integer.class);
 
         List<Integer> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(size -> System.out.println(size));
     }
@@ -63,7 +63,7 @@ public class FuncoesTest extends EntityManagerTest {
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
 
         List<Object[]> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(arr -> System.out.println(arr[0] + " | " + arr[1] + " | " + arr[2]));
     }
@@ -80,7 +80,7 @@ public class FuncoesTest extends EntityManagerTest {
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
 
         List<Object[]> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(arr -> System.out.println(arr[0] + " | " + arr[1] + " | " + arr[2]));
     }
@@ -95,7 +95,7 @@ public class FuncoesTest extends EntityManagerTest {
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
 
         List<Object[]> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
 
         lista.forEach(arr -> System.out.println(arr[0] + " - " + arr[1]));
     }

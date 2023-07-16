@@ -5,12 +5,12 @@ import com.algaworks.ecommerce.model.Cliente;
 import com.algaworks.ecommerce.model.Cliente_;
 import com.algaworks.ecommerce.model.Pedido;
 import com.algaworks.ecommerce.model.Pedido_;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-import jakarta.persistence.EntityGraph;
-import jakarta.persistence.Subgraph;
-import jakarta.persistence.TypedQuery;
+import javax.persistence.EntityGraph;
+import javax.persistence.Subgraph;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class EntityGraphTest extends EntityManagerTest {
@@ -23,9 +23,9 @@ public class EntityGraphTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager
                 .createQuery("select p from Pedido p", Pedido.class);
-        typedQuery.setHint("jakarta.persistence.fetchgraph", entityGraph);
+        typedQuery.setHint("javax.persistence.fetchgraph", entityGraph);
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -40,9 +40,9 @@ public class EntityGraphTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager
                 .createQuery("select p from Pedido p", Pedido.class);
-        typedQuery.setHint("jakarta.persistence.fetchgraph", entityGraph);
+        typedQuery.setHint("javax.persistence.fetchgraph", entityGraph);
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -57,9 +57,9 @@ public class EntityGraphTest extends EntityManagerTest {
 
         TypedQuery<Pedido> typedQuery = entityManager
                 .createQuery("select p from Pedido p", Pedido.class);
-        typedQuery.setHint("jakarta.persistence.fetchgraph", entityGraph);
+        typedQuery.setHint("javax.persistence.fetchgraph", entityGraph);
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 
     @Test
@@ -69,16 +69,16 @@ public class EntityGraphTest extends EntityManagerTest {
                 "dataCriacao", "status", "total", "notaFiscal");
         /*
         Map<String, Object> properties = new HashMap<>();
-        properties.put("jakarta.persistence.fetchgraph", entityGraph);
-//        properties.put("jakarta.persistence.loadgraph", entityGraph);
+        properties.put("javax.persistence.fetchgraph", entityGraph);
+//        properties.put("javax.persistence.loadgraph", entityGraph);
         Pedido pedido = entityManager.find(Pedido.class, 1, properties);
-        Assertions.assertNotNull(pedido);
+        Assert.assertNotNull(pedido);
         */
 
         TypedQuery<Pedido> typedQuery = entityManager
                 .createQuery("select p from Pedido p", Pedido.class);
-        typedQuery.setHint("jakarta.persistence.fetchgraph", entityGraph);
+        typedQuery.setHint("javax.persistence.fetchgraph", entityGraph);
         List<Pedido> lista = typedQuery.getResultList();
-        Assertions.assertFalse(lista.isEmpty());
+        Assert.assertFalse(lista.isEmpty());
     }
 }
