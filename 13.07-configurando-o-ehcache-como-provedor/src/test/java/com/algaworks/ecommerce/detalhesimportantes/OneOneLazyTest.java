@@ -2,8 +2,8 @@ package com.algaworks.ecommerce.detalhesimportantes;
 
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class OneOneLazyTest extends EntityManagerTest {
     public void mostrarProblema() {
         System.out.println("BUSCANDO UM PEDIDO:");
         Pedido pedido = entityManager.find(Pedido.class, 1);
-        Assert.assertNotNull(pedido);
+        Assertions.assertNotNull(pedido);
 
         System.out.println("----------------------------------------------------");
 
@@ -21,6 +21,6 @@ public class OneOneLazyTest extends EntityManagerTest {
         List<Pedido> lista = entityManager
                 .createQuery("select p from Pedido p", Pedido.class)
                 .getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
     }
 }
