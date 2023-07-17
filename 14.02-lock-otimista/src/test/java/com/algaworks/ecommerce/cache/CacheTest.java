@@ -1,12 +1,12 @@
 package com.algaworks.ecommerce.cache;
 
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,13 +14,13 @@ public class CacheTest {
 
     protected static EntityManagerFactory entityManagerFactory;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpBeforeClass() {
         entityManagerFactory = Persistence
                 .createEntityManagerFactory("Ecommerce-PU");
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDownAfterClass() {
         entityManagerFactory.close();
     }
@@ -49,11 +49,11 @@ public class CacheTest {
         log("---");
 
         esperar(1);
-        Assert.assertTrue(cache.contains(Pedido.class, 2));
+        Assertions.assertTrue(cache.contains(Pedido.class, 2));
         entityManager2.find(Pedido.class, 2);
 
         esperar(3);
-        Assert.assertFalse(cache.contains(Pedido.class, 2));
+        Assertions.assertFalse(cache.contains(Pedido.class, 2));
 
         entityManager1.close();
         entityManager2.close();
@@ -61,25 +61,25 @@ public class CacheTest {
 
     @Test
     public void controlarCacheDinamicamente() {
-        // javax.persistence.cache.retrieveMode CacheRetrieveMode
-        // javax.persistence.cache.storeMode CacheStoreMode
+        // jakarta.persistence.cache.retrieveMode CacheRetrieveMode
+        // jakarta.persistence.cache.storeMode CacheStoreMode
 
         Cache cache = entityManagerFactory.getCache();
 
         System.out.println("Buscando todos os pedidos..........................");
         EntityManager entityManager1 = entityManagerFactory.createEntityManager();
-        entityManager1.setProperty("javax.persistence.cache.storeMode", CacheStoreMode.BYPASS);
+        entityManager1.setProperty("jakarta.persistence.cache.storeMode", CacheStoreMode.BYPASS);
         entityManager1
                 .createQuery("select p from Pedido p", Pedido.class)
-                .setHint("javax.persistence.cache.storeMode", CacheStoreMode.USE)
+                .setHint("jakarta.persistence.cache.storeMode", CacheStoreMode.USE)
                 .getResultList();
         entityManager1.close();
 
         System.out.println("Buscando o pedido de ID igual a 2..................");
         EntityManager entityManager2 = entityManagerFactory.createEntityManager();
         Map<String, Object> propriedades = new HashMap<>();
-//        propriedades.put("javax.persistence.cache.storeMode", CacheStoreMode.BYPASS);
-//        propriedades.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+//        propriedades.put("jakarta.persistence.cache.storeMode", CacheStoreMode.BYPASS);
+//        propriedades.put("jakarta.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         entityManager2.find(Pedido.class, 2, propriedades);
         entityManager2.close();
 
@@ -87,7 +87,7 @@ public class CacheTest {
         EntityManager entityManager3 = entityManagerFactory.createEntityManager();
         entityManager3
                 .createQuery("select p from Pedido p", Pedido.class)
-//                .setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS)
+//                .setHint("jakarta.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS)
                 .getResultList();
         entityManager3.close();
     }
@@ -103,7 +103,7 @@ public class CacheTest {
                 .createQuery("select p from Pedido p", Pedido.class)
                 .getResultList();
 
-        Assert.assertTrue(cache.contains(Pedido.class, 1));
+        Assertions.assertTrue(cache.contains(Pedido.class, 1));
 
         entityManager1.close();
     }
@@ -119,8 +119,8 @@ public class CacheTest {
                 .createQuery("select p from Pedido p", Pedido.class)
                 .getResultList();
 
-        Assert.assertTrue(cache.contains(Pedido.class, 1));
-        Assert.assertTrue(cache.contains(Pedido.class, 2));
+        Assertions.assertTrue(cache.contains(Pedido.class, 1));
+        Assertions.assertTrue(cache.contains(Pedido.class, 2));
 
         entityManager1.close();
     }
