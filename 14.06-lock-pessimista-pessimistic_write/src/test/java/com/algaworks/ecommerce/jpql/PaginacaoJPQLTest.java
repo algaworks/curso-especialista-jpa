@@ -3,10 +3,10 @@ package com.algaworks.ecommerce.jpql;
 import com.algaworks.ecommerce.EntityManagerTest;
 import com.algaworks.ecommerce.model.Categoria;
 import com.algaworks.ecommerce.model.Pedido;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.TypedQuery;
+import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 public class PaginacaoJPQLTest extends EntityManagerTest {
@@ -22,7 +22,7 @@ public class PaginacaoJPQLTest extends EntityManagerTest {
         typedQuery.setMaxResults(2);
 
         List<Categoria> lista = typedQuery.getResultList();
-        Assert.assertFalse(lista.isEmpty());
+        Assertions.assertFalse(lista.isEmpty());
 
         lista.forEach(c -> System.out.println(c.getId() + ", " + c.getNome()));
     }
