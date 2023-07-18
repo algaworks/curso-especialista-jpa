@@ -16,7 +16,7 @@ import java.util.Map;
 public class EcmSchemaMultiTenantConnectionProvider implements
         MultiTenantConnectionProvider, ServiceRegistryAwareService, Startable {
 
-    private Map<String, String> properties = null;
+    private Map<String, Object> properties = null;
 
     private ConnectionProvider connectionProvider = null;
 
