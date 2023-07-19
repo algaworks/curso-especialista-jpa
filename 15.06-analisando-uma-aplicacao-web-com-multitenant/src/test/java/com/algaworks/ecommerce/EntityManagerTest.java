@@ -1,20 +1,20 @@
 package com.algaworks.ecommerce;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 public class EntityManagerTest extends EntityManagerFactoryTest {
 
     protected EntityManager entityManager;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         entityManager = entityManagerFactory.createEntityManager();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         entityManager.close();
     }

@@ -1,7 +1,7 @@
 package com.algaworks.ecommerce.hibernate;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 public class TenantFilter implements Filter {
@@ -10,15 +10,15 @@ public class TenantFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException { }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) servletRequest;
+    public void doFilter(ServletRequest httpServletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) httpServletRequest;
 
         String serverName = request.getServerName();
         String subdomain = serverName.substring(0, serverName.indexOf("."));
 
         EcmCurrentTenantIdentifierResolver.setTenantIdentifier(subdomain + "_ecommerce");
 
-        filterChain.doFilter(servletRequest, servletResponse);
+        filterChain.doFilter(httpServletRequest, servletResponse);
     }
 
     @Override

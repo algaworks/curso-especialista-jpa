@@ -31,7 +31,7 @@
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="javascript:;" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                    th:href="@{/produtos}"
                                 >
                                     Produtos
@@ -54,6 +54,7 @@
             <th:block layout:fragment="conteudo"></th:block>
         </main>
 
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </body>
