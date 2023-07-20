@@ -2,7 +2,7 @@
 <html lang="pt-br"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="~{layout/padrao}">
+      layout:decorate="~{layout/padrao}">
 <head>
     <title>Cadastro de Produto</title>
 </head>
@@ -18,7 +18,7 @@
     <section>
         <div class="container">
             <form method="post" th:object="${produto}"
-                  th:action="${#httpServletRequest.getServletPath()}">
+                  th:action="${httpServletRequest.getServletPath()}">
                 <div class="alert alert-warning alert-dismissible fade show" role="alert"
                      th:if="${#fields.hasAnyErrors()}">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -33,9 +33,7 @@
 
                 <div class="alert alert-success alert-dismissible fade show" role="alert"
                      th:if="${!#strings.isEmpty(mensagem)}">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
                     <span th:text="${mensagem}">Mensagem de sucesso.</span>
                 </div>

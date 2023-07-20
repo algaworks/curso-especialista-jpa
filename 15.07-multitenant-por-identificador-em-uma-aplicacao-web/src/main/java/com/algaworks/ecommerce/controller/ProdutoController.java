@@ -3,6 +3,8 @@ package com.algaworks.ecommerce.controller;
 import com.algaworks.ecommerce.model.Produto;
 import com.algaworks.ecommerce.repository.Produtos;
 import com.algaworks.ecommerce.service.ProdutoService;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -36,8 +38,8 @@ public class ProdutoController {
 
     @GetMapping("/{id}/editar")
     public ModelAndView editar(
-            @RequestAttribute String tenant, @PathVariable Integer id) {
-        return novo(produtos.buscar(id, tenant));
+            @RequestAttribute String tenant, @PathVariable Integer id, ServletRequest servletRequest) {
+        return novo(produtos.buscar(id, tenant), servletRequest);
     }
 
     @PostMapping("/novo")
@@ -54,9 +56,12 @@ public class ProdutoController {
     }
 
     @GetMapping("/novo")
-    public ModelAndView novo(Produto produto) {
+    public ModelAndView novo(Produto produto, ServletRequest servletRequest) {
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+
         ModelAndView mv = new ModelAndView("produtos/produtos-formulario");
         mv.addObject("produto", produto);
+        mv.addObject("httpServletRequest", httpServletRequest);
         return mv;
     }
 

@@ -1,26 +1,26 @@
 package com.algaworks.ecommerce.concorrencia;
 
 import com.algaworks.ecommerce.model.Produto;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 public class LockOtimistaTest {
 
     protected static EntityManagerFactory entityManagerFactory;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpBeforeClass() {
         entityManagerFactory = Persistence
                 .createEntityManagerFactory("Ecommerce-PU");
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDownAfterClass() {
         entityManagerFactory.close();
     }
@@ -92,7 +92,7 @@ public class LockOtimistaTest {
         Produto produto = entityManager3.find(Produto.class, 1);
         entityManager3.close();
 
-        Assert.assertEquals("Descrição massa!", produto.getDescricao());
+        Assertions.assertEquals("Descrição massa!", produto.getDescricao());
 
         log("Encerrando método de teste.");
     }

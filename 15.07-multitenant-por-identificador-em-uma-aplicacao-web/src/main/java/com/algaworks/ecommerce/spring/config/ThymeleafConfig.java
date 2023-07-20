@@ -1,18 +1,17 @@
 package com.algaworks.ecommerce.spring.config;
 
+import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.thymeleaf.ITemplateEngine;
-import org.thymeleaf.spring5.SpringTemplateEngine;
-import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
-import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+import org.thymeleaf.spring6.SpringTemplateEngine;
+import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
+import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
-
-import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 @Configuration
 public class ThymeleafConfig {
@@ -35,9 +34,7 @@ public class ThymeleafConfig {
     }
 
     @Bean
-    public ITemplateEngine templateEngine(ITemplateResolver templateResolver) {
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-
+    public ITemplateEngine templateEngine(SpringTemplateEngine templateEngine, ITemplateResolver templateResolver) {
         templateEngine.setTemplateResolver(templateResolver);
         templateEngine.setEnableSpringELCompiler(true);
         templateEngine.addDialect(new LayoutDialect());
@@ -52,5 +49,10 @@ public class ThymeleafConfig {
         viewResolver.setTemplateEngine(templateEngine);
 
         return viewResolver;
+    }
+
+    @Bean
+    public SpringTemplateEngine springTemplateEngine() {
+        return new SpringTemplateEngine();
     }
 }
