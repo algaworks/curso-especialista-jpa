@@ -9,7 +9,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import javax.servlet.*;
+import jakarta.servlet.*;
 import java.util.EnumSet;
 
 public class InicializadorSpringWeb implements WebApplicationInitializer {
