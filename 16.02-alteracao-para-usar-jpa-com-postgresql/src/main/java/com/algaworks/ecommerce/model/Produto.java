@@ -5,11 +5,17 @@ import com.algaworks.ecommerce.listener.GenericoListener;
 import com.algaworks.ecommerce.model.converter.BooleanToSimNaoConverter;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.Length;
+import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import org.hibernate.type.descriptor.jdbc.BinaryJdbcType;
+import org.hibernate.usertype.UserType;
+
 import java.math.BigDecimal;
+import java.sql.Types;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -71,13 +77,15 @@ public class Produto extends EntidadeBaseInteger {
     private String nome;
 
     // @Lob
+    @Column(length = Length.LONG32)
     private String descricao;
 
     @Positive
     private BigDecimal preco;
 
     @Lob
-    @Type(type="org.hibernate.type.BinaryType")
+    @Column(length = 1000)
+    @JdbcTypeCode(Types.VARBINARY)
     private byte[] foto;
 
     @Convert(converter = BooleanToSimNaoConverter.class)
