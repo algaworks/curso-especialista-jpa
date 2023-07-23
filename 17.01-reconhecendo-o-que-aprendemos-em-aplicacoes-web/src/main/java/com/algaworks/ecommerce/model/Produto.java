@@ -6,11 +6,13 @@ import com.algaworks.ecommerce.model.converter.BooleanToSimNaoConverter;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Positive;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
+import org.hibernate.Length;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -73,12 +75,14 @@ public class Produto extends EntidadeBaseInteger {
     private String nome;
 
     @Lob
+    @Column(length = Length.LONG32)
     private String descricao;
 
     @Positive
     private BigDecimal preco;
 
     @Lob
+    @Column(length = 1000)
     private byte[] foto;
 
     @Convert(converter = BooleanToSimNaoConverter.class)
