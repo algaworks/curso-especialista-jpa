@@ -8,16 +8,16 @@ package com.algaworks.ecommerce.hibernate;
 //import org.hibernate.service.spi.ServiceRegistryAwareService;
 //import org.hibernate.service.spi.ServiceRegistryImplementor;
 //import org.hibernate.service.spi.Startable;
-//
-//import java.sql.Connection;
-//import java.sql.SQLException;
-//import java.util.Map;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Map;
 
 public class EcmSchemaMultiTenantConnectionProvider
 //        implements MultiTenantConnectionProvider, ServiceRegistryAwareService, Startable
 {
-//
-//    private Map<String, String> properties = null;
+
+//    private Map<String, Object> properties = null;
 //
 //    private ConnectionProvider connectionProvider = null;
 //

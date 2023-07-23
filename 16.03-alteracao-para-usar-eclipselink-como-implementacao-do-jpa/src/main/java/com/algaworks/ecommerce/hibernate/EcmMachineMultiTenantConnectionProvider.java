@@ -7,11 +7,11 @@ package com.algaworks.ecommerce.hibernate;
 //import org.hibernate.service.spi.ServiceRegistryAwareService;
 //import org.hibernate.service.spi.ServiceRegistryImplementor;
 //import org.hibernate.service.spi.Startable;
-//
-//import java.sql.Connection;
-//import java.sql.SQLException;
-//import java.util.HashMap;
-//import java.util.Map;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EcmMachineMultiTenantConnectionProvider
 //        implements MultiTenantConnectionProvider, ServiceRegistryAwareService, Startable
@@ -19,7 +19,7 @@ public class EcmMachineMultiTenantConnectionProvider
 
 //    private Map<String, ConnectionProvider> connectionProviders = null;
 //
-//    private Map<String, String> properties = null;
+//    private Map<String, Object> properties = null;
 //
 //    @Override
 //    public Connection getConnection(String tenantIdentifier) throws SQLException {
@@ -89,15 +89,15 @@ public class EcmMachineMultiTenantConnectionProvider
 //
 //    private void configurarTenant(String tenant,
 //                                         String url, String usuario, String senha) {
-//        Map<String, String> props = new HashMap<>(this.properties);
+//        Map<String, Object> props = new HashMap<>(this.properties);
 //
-//        props.put("javax.persistence.jdbc.url", url);
+//        props.put("jakarta.persistence.jdbc.url", url);
 //        props.put("hibernate.connection.url", url);
 //
-//        props.put("javax.persistence.jdbc.user", usuario);
+//        props.put("jakarta.persistence.jdbc.user", usuario);
 //        props.put("hibernate.connection.username", usuario);
 //
-//        props.put("javax.persistence.jdbc.password", senha);
+//        props.put("jakarta.persistence.jdbc.password", senha);
 //        props.put("hibernate.connection.password", senha);
 //
 //        HikariCPConnectionProvider cp = new HikariCPConnectionProvider();
