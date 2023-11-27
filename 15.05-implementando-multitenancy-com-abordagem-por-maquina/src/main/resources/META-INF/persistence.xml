@@ -8,19 +8,12 @@
         <mapping-file>META-INF/consultas/produto.xml</mapping-file>
         <mapping-file>META-INF/consultas/categoria.xml</mapping-file>
 
-        <shared-cache-mode>ALL</shared-cache-mode>
-
         <validation-mode>CALLBACK</validation-mode>
 
         <properties>
-            <property name="jakarta.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost/algaworks_ecommerce?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC"/>
-            <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value="1234"/>
-            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 
             <property name="jakarta.persistence.schema-generation.database.action"
-                      value="none"/>
+                      value="update"/>
 
             <property name="jakarta.persistence.schema-generation.create-source"
                       value="metadata-then-script"/>
@@ -36,7 +29,7 @@
                       value="META-INF/banco-de-dados/dados-iniciais.sql"/>
 
             <property name="jakarta.persistence.schema-generation.scripts.action"
-                      value="none"/>
+                      value="drop-and-create"/>
             <property name="jakarta.persistence.schema-generation.scripts.create-target"
                       value="C:/tmp/sql/script-criacao-exportado.sql"/>
             <property name="jakarta.persistence.schema-generation.scripts.drop-target"
@@ -53,13 +46,6 @@
             <property name="hibernate.hikari.maximumPoolSize" value="8"/>
             <property name="hibernate.connection.provider_class"
                       value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
-
-            <property name="hibernate.cache.region.factory_class"
-                      value="jcache"/>
-            <property name="hibernate.jakarta.cache.provider"
-                      value="org.ehcache.jsr107.EhcacheCachingProvider"/>
-            <property name="hibernate.javax.cache.uri"
-                      value="file:/seu/caminho/para/o/projeto/da/aula/src/main/resources/META-INF/ehcache.xml"/>
 
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="false"/>

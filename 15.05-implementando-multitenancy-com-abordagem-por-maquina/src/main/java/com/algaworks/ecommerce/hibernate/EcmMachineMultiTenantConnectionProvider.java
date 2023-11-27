@@ -75,29 +75,30 @@ public class EcmMachineMultiTenantConnectionProvider implements
                 "jdbc:mysql://localhost/algaworks_ecommerce?" +
                         "createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC",
                 "root",
-                "1234");
+                "mysql", "com.mysql.cj.jdbc.Driver");
 
         configurarTenant("loja_ecommerce",
-                "jdbc:mysql://localhost/loja_ecommerce?" +
-                        "createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC",
-                "root",
-                "1234");
+                "jdbc:oracle:thin:@//localhost:1521/XEPDB1",
+                "system",
+                "1234", "oracle.jdbc.OracleDriver");
 
         this.properties = null;
     }
 
     private void configurarTenant(String tenant,
-                                         String url, String usuario, String senha) {
+                                         String url, String usuario, String senha, String driver) {
         Map<String, Object> props = new HashMap<>(this.properties);
 
         props.put("jakarta.persistence.jdbc.url", url);
         props.put("hibernate.connection.url", url);
 
-        props.put("jakarta.persistence.jdbc.user", usuario);
         props.put("hibernate.connection.username", usuario);
-
-        props.put("jakarta.persistence.jdbc.password", senha);
         props.put("hibernate.connection.password", senha);
+
+        props.put("jakarta.persistence.jdbc.user", usuario);
+        props.put("jakarta.persistence.jdbc.password", senha);
+        props.put("jakarta.persistence.schema-generation.database.action", "update");
+        props.put("jakarta.persistence.jdbc.driver", driver);
 
         HikariCPConnectionProvider cp = new HikariCPConnectionProvider();
         cp.configure(props);

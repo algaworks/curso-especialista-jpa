@@ -3,6 +3,7 @@ package com.algaworks.ecommerce.multitenant;
 import com.algaworks.ecommerce.EntityManagerFactoryTest;
 import com.algaworks.ecommerce.hibernate.EcmCurrentTenantIdentifierResolver;
 import com.algaworks.ecommerce.model.Produto;
+import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,8 @@ public class MultiTenantTest extends EntityManagerFactoryTest {
 
     @Test
     public void usarAbordagemPorMaquina() {
+        entityManagerFactory = Persistence
+                .createEntityManagerFactory("Ecommerce-PU");
         EcmCurrentTenantIdentifierResolver.setTenantIdentifier("algaworks_ecommerce");
         EntityManager entityManager1 = entityManagerFactory.createEntityManager();
         Produto produto1 = entityManager1.find(Produto.class, 1);
