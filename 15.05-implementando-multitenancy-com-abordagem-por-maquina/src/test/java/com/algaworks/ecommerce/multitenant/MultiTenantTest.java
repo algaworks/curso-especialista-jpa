@@ -13,8 +13,6 @@ public class MultiTenantTest extends EntityManagerFactoryTest {
 
     @Test
     public void usarAbordagemPorMaquina() {
-        entityManagerFactory = Persistence
-                .createEntityManagerFactory("Ecommerce-PU");
         EcmCurrentTenantIdentifierResolver.setTenantIdentifier("algaworks_ecommerce");
         EntityManager entityManager1 = entityManagerFactory.createEntityManager();
         Produto produto1 = entityManager1.find(Produto.class, 1);
